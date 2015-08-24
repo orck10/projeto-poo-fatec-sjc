@@ -45,7 +45,6 @@ def melhor_lista(x):
             if(len(lista_de_listas[y]) >= len(lista_de_listas[z])):
                 y = z
             z = z+1
-        print(lista_de_listas[y])
         return lista_de_listas[y]
     return [0]
 

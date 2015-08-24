@@ -1,0 +1,58 @@
+def list_quadrados (x):
+    lista = []
+    for i in range(1,x+1):
+        if ((i**2) <= x):
+            lista.append(i**2)
+    return lista
+
+assert list_quadrados (1) == [1]
+assert list_quadrados (4) == [1,4]
+assert list_quadrados (9) == [1,4,9]
+assert list_quadrados (12) == [1,4,9]
+
+    
+def list_soma (lista , x):
+    if x >= 1:
+        lista2 = []
+        if (lista[-1] < x):
+            lista2.append(lista[-1])
+            lista2.extend(list_soma(list_quadrados (x - lista[-1]), x - lista[-1]))
+            return lista2
+        lista2.append(lista[-1])
+        return lista2
+    return [0]
+    
+
+assert list_soma (list_quadrados (1), 0) == [0]
+assert list_soma (list_quadrados (1), 1) == [1]
+assert list_soma (list_quadrados (4), 4) == [4]
+assert list_soma (list_quadrados (5), 5) == [4,1]
+assert list_soma (list_quadrados (12), 12) == [9,1,1,1]
+assert list_soma (list_quadrados (13), 13) == [9,4]
+
+
+def melhor_lista(x):
+    if(x >= 1):
+        lista = []
+        lista = list_quadrados(x)
+        lista_de_listas = []
+        while len(lista) >= 1:
+            lista_de_listas.append(list_soma (lista, x))
+            del lista[-1]
+        y = 0
+        z = 0
+        while (z < len(lista_de_listas)):
+            if(len(lista_de_listas[y]) >= len(lista_de_listas[z])):
+                y = z
+            z = z+1
+        print(lista_de_listas[y])
+        return lista_de_listas[y]
+    return [0]
+
+assert melhor_lista (0) == [0]
+assert melhor_lista (1) == [1]
+assert melhor_lista (4) == [4]
+assert melhor_lista (5) == [1,4]
+assert melhor_lista (12) == [4,4,4]
+assert melhor_lista (13) == [4,9]
+assert melhor_lista (20) == [4,16]

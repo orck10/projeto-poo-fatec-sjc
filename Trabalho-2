@@ -1,0 +1,24 @@
+numerais = {'0':'zero','1':'um','2':'dois','3':'três','4':'quatro','5':'cinco','6':'seis','7':'sete','8':'oito','9':'nove'}
+decimais = {'zero':'0','um':'1','dois':'2','três':'3','quatro':'4','cinco':'5','seis':'6','sete':'7','oito':'8','nove':'9'}
+
+def numeral(n):
+    x = str(n)
+    lista = []
+    for i in x:
+        lista.append(numerais[i])
+    return lista
+
+assert numeral(123) == ['um', 'dois','três']
+assert numeral(8910) == ['oito', 'nove', 'um', 'zero']
+
+def decimal(lista):
+    x = []
+    n = 0
+    y = len(lista) - 1
+    for i in lista:
+        n =  n + (int(decimais[i])*(10**y))
+        y -= 1
+    return n
+
+assert 123 == decimal(['um', 'dois','três'])
+assert 8910 == decimal(['oito', 'nove', 'um', 'zero'])

@@ -1,0 +1,20 @@
+package Animais;
+
+public class ManadaVigula extends Manada{
+
+	public ManadaVigula() {
+		super();
+	}
+
+	@Override
+	public String estourar() {
+		String msg = "";
+		for (Animal a : animais){
+			msg += a.fazerBarulho();
+			msg += ",";
+		}
+		return msg;
+		
+	}
+
+}

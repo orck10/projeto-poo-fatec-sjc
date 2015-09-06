@@ -1,8 +1,8 @@
 package Animais;
 
-public class ManadaVigula extends Manada{
+public class ManadaVirgula extends Manada{
 
-	public ManadaVigula() {
+	public ManadaVirgula() {
 		super();
 	}
 

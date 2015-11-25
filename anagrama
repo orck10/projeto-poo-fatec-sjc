@@ -1,0 +1,34 @@
+def ehanagrama(palavra1 , palavra2):
+    p1 = []
+    p1 = list(palavra1.replace(' ','').lower())
+    p2 = []
+    p2 = list(palavra2.replace(' ', '').lower())
+    lista = []
+    lista2 = []
+    if(len(p1) == len(p2)):
+        for i in p1:
+            if i in p2:
+                lista.append(i)
+            else:
+                return False
+        for i in p2:
+            if i in p1:
+                lista2.append(i)
+        print(lista)
+        print(lista2)
+        if len(lista) == len(lista2):
+            return True
+
+    return False
+
+
+print(ehanagrama('', ''))
+print(ehanagrama("", ''))
+print(ehanagrama('a', 'a'))
+print(ehanagrama('a', 'a    '))
+print(ehanagrama('ab', 'ab'))
+print(ehanagrama('ba', 'ab'))
+print(ehanagrama('b   a', 'ab'))
+print(ehanagrama('ba', 'a'))
+print(ehanagrama('pythons', 'pothyni'))
+print(ehanagrama('python', 'pthon'))

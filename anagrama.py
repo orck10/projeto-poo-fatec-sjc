@@ -22,13 +22,13 @@ def ehanagrama(palavra1 , palavra2):
                 temp = dicP1[i]
                 dicP1[i] = temp+1
             else:
-                dicP1[i] = [1]
+                dicP1[i] = 1
         for i in p2:
             if i in dicP2:
                 temp = dicP2[i]
                 dicP2[i] = temp+1
             else:
-                dicP2[i] = [1]
+                dicP2[i] = 1
         for i in p1:
             if i in p2:
                 lista.append(i)
@@ -37,9 +37,19 @@ def ehanagrama(palavra1 , palavra2):
         for i in p2:
             if i in p1:
                 lista2.append(i)
-        print(lista)
-        print(lista2)
+
         if (len(lista) == len(lista2)) and (dicP1 == dicP2):
             return True
-
     return False
+
+
+print(ehanagrama('', ''))
+print(ehanagrama("", ''))
+print(ehanagrama('a', 'a'))
+print(ehanagrama('a', 'a    '))
+print(ehanagrama('ab', 'ab'))
+print(ehanagrama('ba', 'ab'))
+print(ehanagrama('b   a', 'ab'))
+print(ehanagrama('ba', 'a'))
+print(ehanagrama('pythons', 'pothyns'))
+print(ehanagrama('abb', 'baa'))
